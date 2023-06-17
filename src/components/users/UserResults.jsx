@@ -4,12 +4,12 @@ import UserItem from './UserItem'
 import GitHubContext from '../../context/github/GitHubContext'
 
 const UserResults = () => {
-  const { users, isLoading } = useContext(GitHubContext)
+  const { usersFromContext, isLoadingFromContext } = useContext(GitHubContext)
 
-  if (!isLoading) {
+  if (!isLoadingFromContext) {
     return (
       <div className='grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'>
-        {users.map((user) => (
+        {usersFromContext.map((user) => (
           <UserItem key={user.id} userProp={user} />
         ))}
       </div>
