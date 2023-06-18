@@ -6,13 +6,19 @@ import { Link } from 'react-router-dom'
 import Spinner from '../components/layout/Spinner'
 
 const User = () => {
-  const { getUser, selectedUserFromContext, isLoadingFromContext } =
-    useContext(GitHubContext)
+  const {
+    selectedUserFromContext,
+    reposFromContext,
+    isLoadingFromContext,
+    getUser,
+    getRepos,
+  } = useContext(GitHubContext)
 
   const params = useParams()
 
   useEffect(() => {
     getUser(params.login)
+    getRepos(params.login)
   }, [])
 
   const {
