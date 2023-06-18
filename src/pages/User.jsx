@@ -1,9 +1,10 @@
-import { useContext, useEffect } from 'react'
 import GitHubContext from '../context/github/GitHubContext'
+import { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { FaCode, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Spinner from '../components/layout/Spinner'
+import ReposList from '../components/repos/ReposList'
 
 const User = () => {
   const {
@@ -168,6 +169,7 @@ const User = () => {
             </div>
           </div>
         </div>
+        <ReposList reposListProp={reposFromContext} />
       </div>
     </>
   )

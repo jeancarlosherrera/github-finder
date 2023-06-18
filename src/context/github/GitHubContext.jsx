@@ -56,8 +56,13 @@ export const GitHubProvider = ({ children }) => {
   const getRepos = async (login) => {
     setLoading()
 
+    const params = new URLSearchParams({
+      sort: 'created',
+      per_page: 10,
+    })
+
     const res = await fetch(
-      `${process.env.REACT_APP_GITHUB_URL}/users/${login}/repos`
+      `${process.env.REACT_APP_GITHUB_URL}/users/${login}/repos?${params}`
     )
 
     const data = await res.json()
